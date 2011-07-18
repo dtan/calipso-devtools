@@ -13,12 +13,6 @@ var calipso = require('lib/calipso');
 exports = module.exports = {
   init: init,
   route: route,
-  about: {
-    description: 'Start of developer tools module.',
-    author: 'cliftonc',
-    version: '0.1.1',
-    home: 'http://github.com/cliftonc/calipso'
-  },
   last: true // Needs to run last
 };
 
