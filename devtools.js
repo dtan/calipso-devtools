@@ -24,8 +24,8 @@ exports = module.exports = {
 function route(req, res, module, app, next) {
 
   // Add dev tools view 
-  res.menu.admin.addMenuItem({name:'Development',path:'admin/dev',url:'#',description:'Dev tools ...',security:[]});
-  res.menu.admin.addMenuItem({name:'Calipso Events',path:'admin/dev/events',url:'/admin/dev/events',description:'View events and event listeners ...',security:[]});
+  res.menu.admin.addMenuItem(req, {name:'Development',path:'admin/dev',url:'#',description:'Dev tools ...',security:[]});
+  res.menu.admin.addMenuItem(req, {name:'Calipso Events',path:'admin/dev/events',url:'/admin/dev/events',description:'View events and event listeners ...',security:[]});
   
   // Router
   module.router.route(req, res, next);
@@ -80,7 +80,6 @@ function devTools(req, res, template, block, next) {
  */
 function devEvents(req, res, template, block, next) {
 
-  var sys = require('sys');
-  calipso.theme.renderItem(req, res, template, block, {sys:sys,events:calipso.e.events},next);
+  calipso.theme.renderItem(req, res, template, block, {events:calipso.e.events},next);
 
 };
